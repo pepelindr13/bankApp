@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css"
+/>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<style>
+    #container {
+        padding:50px;
+    }
+
+    #ell {
+        transform: translateX(-20px);
+    }
+
+    #container h1 {
+        font-size: 50px;
+        font-weight: 700;
+        padding: 20px 0;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        font-size: 17px;
+        color: #878787;
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid #878787;
+        padding: 20px 0;
+        margin-bottom: 25px;
+        outline: none;
+        background: white;
+        /* padding-left: 10px; */
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    input:focus {
+        background: transparent;
+    }
+    ::placeholder {
+        font-size:17px ;
+        color: rgba(128, 128, 128, 0.479);
+    }
+
+    .eye {
+        transform: translateY(-55px);
+        height: 25px;
+        
+    }
+
+    #btndiv {
+        display: flex;
+        margin: 20px 0;
+    }
+
+    button {
+        background-color: #5063BF;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 15px 40px;
+        font-size: 20px;
+        margin:0 auto;
+    }
+
+    .dash {
+        width: 70px;
+        height: 1px;
+        background-color: black;
+    }
+
+    span {
+        color: #5063BF;
+        font-weight: 600;
+    }
+
+
+</style>
+<body>
+    <div id="container">
+        <div id="ellipse">
+            <img src="images/Ellipse 127.png" alt="">
+            <img id="ell" src="images/Ellipse 128.png" alt="">
+        </div>
+        <h1>
+            Sign Up
+        </h1>
+        <form action="login.html">
+            <div>
+                <label for="email">Email Address</label> <br>
+                <input id="email" class="w-100" type="text" placeholder="Example@gmail.com">
+            </div>
+            <div>
+                <label for="password">Password</label> <br>
+                <input id="password" class="w-100" type="text">
+                <img class="eye float-end " src="images/Mask Group eye.png" alt="">
+            </div>
+            <div>
+                <label for="password">Confirm Password</label> <br>
+                <input id="Cpassword" class="w-100" type="password">
+                <img class="eye float-end " src="images/Mask Group eye.png" alt="">
+            </div>
+            <div id="btndiv">
+                <button onclick="signup()">
+                    Sign Up
+                </button>
+            </div>
+            <div class="d-flex w-100 justify-content-center  align-items-center ">
+                <div class="dash"></div>
+                <h3 class="mx-3 text-secondary ">or</h3>
+                <div class="dash"></div>
+            </div>
+            <div class="w-100 mt-3 d-flex align-items-center justify-content-evenly ">
+                <img class="" src="images/google.png" alt="">
+                <img src="images/Mask group.png" alt="">
+            </div>
+            <div class="login text-center mt-3 fs-5 text-secondary">
+                Already have an account?<span> Login</span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let SignedUp = [];
+        if(localStorage.signup){
+            let getUser = JSON.parse(localStorage.getItem("signup"));
+            SignedUp = getUser;
+        }
+
+        function signup() {
+          let SignUser = {
+            email: email.value,
+            password: password.value,
+            Cpassword: Cpassword.value
+          }
+          if(email.value === "" || password.value === ""  || Cpassword.value === ""){
+            alert("Fill in all fields")
+          }else{
+            SignedUp.push(SignUser)
+            localStorage.setItem("signup", JSON.stringify(SignedUp))
+            window.location.href = "login.html"
+          }
+        }
+        
+    </script>
+</body>
+</html>
