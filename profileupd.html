@@ -34,7 +34,7 @@
     }
 
     body {
-        padding: 50px;
+        padding: 20px;
     }
 
     #profile {
@@ -94,7 +94,7 @@
         <div>
             <img src="images/Currency-rafiki 1.png" alt="">
         </div>
-        <form action="">
+        <div>
             <div>
                 <label for="firstname">First Name</label> <br>
                 <input id="firstname" class="w-100" type="text">
@@ -113,13 +113,12 @@
                     Set
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 
     <script>
         let getUser = JSON.parse(localStorage.getItem("signup"));
         let sUser = JSON.parse(localStorage.getItem("newUser"));
-        let info = 
         function back() {
             window.location.href = "login.html";
         }
@@ -137,7 +136,7 @@
                 getUser[sUser].userinfo.push(details)
                 localStorage.setItem("signup", JSON.stringify(getUser))
                  console.log(getUser[sUser].userinfo);
-                window.location.href = "login.html";
+                window.location.href = "security.html";
             }
         }
 

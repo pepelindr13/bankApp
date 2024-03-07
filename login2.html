@@ -48,7 +48,7 @@
         border: none;
         border-bottom: 1px solid #878787;
         padding: 20px 0;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         outline: none;
         background: white;
         /* padding-left: 10px; */
@@ -105,26 +105,16 @@
             <img id="ell" src="images/Ellipse 128.png" alt="">
         </div>
         <h1>
-            Sign Up
+            Log In
         </h1>
         <div>
             <div>
-                <label for="email">Email Address</label> <br>
-                <input id="email" class="w-100" type="text" placeholder="Example@gmail.com">
-            </div>
-            <div>
-                <label for="password">Password</label> <br>
-                <input id="password" class="w-100" type="password">
-                <img class="eye float-end " src="images/Mask Group eye.png" alt="">
-            </div>
-            <div>
-                <label for="password">Confirm Password</label> <br>
-                <input id="Cpassword" class="w-100" type="password">
-                <img class="eye float-end " src="images/Mask Group eye.png" alt="">
+                <label for="number">Phone Number</label> <br>
+                <input id="number" class="w-100" type="number" placeholder="+2348057890112">
             </div>
             <div id="btndiv">
-                <button onclick="signup()">
-                    Sign Up
+                <button onclick="login()">
+                    Log in
                 </button>
             </div>
             <div class="d-flex w-100 justify-content-center  align-items-center ">
@@ -137,36 +127,28 @@
                 <img src="images/Mask group.png" alt="">
             </div>
             <div class="login text-center mt-3 fs-5 text-secondary">
-                Already have an account?<span> Login</span>
+                Don't have an account?<span> <a href="signup.html">Sign up</a></span>
             </div>
         </div>
     </div>
 
     <script>
-        let SignedUp = [];
-        if(localStorage.signup){
-            let getUser = JSON.parse(localStorage.getItem("signup"));
-            SignedUp = getUser;
-        }
+        let getUser = JSON.parse(localStorage.getItem("signup"));
+        let sUser = JSON.parse(localStorage.getItem("newUser"));
+        console.log(getUser[sUser].userinfo[0].number);
 
-        function signup() {
-          let SignUser = {
-            email: email.value,
-            password: password.value,
-            Cpassword: Cpassword.value,
-            security: [],
-            userinfo: []
-        
-          }
-          if(email.value === "" || password.value === ""  || Cpassword.value === ""){
-            alert("Fill in all fields")
-          }else{
-            SignedUp.push(SignUser)
-            localStorage.setItem("signup", JSON.stringify(SignedUp))
-            window.location.href = "login.html"
-          }
+        function login(){
+            if(number.value === ""){
+                alert("Fill in your phone number")
+            }else if(number.value === getUser[sUser].userinfo[0].number){
+                Swal.fire({
+                title: "Good job!",
+                text: "You've successfully Logged in!'",
+                icon: "success",
+          });
+            }else{alert("Number is not registered in your name.")}
         }
-        
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>

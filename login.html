@@ -22,7 +22,7 @@
 </head>
 <style>
     #container {
-        padding:50px;
+        padding:20px;
     }
 
     #ell {
@@ -107,20 +107,19 @@
         <h1>
             Log In
         </h1>
-        <form action="profileupd.html">
+        <div>
             <div>
                 <label for="email">Email Address</label> <br>
-                <input id="email" class="w-100" type="text" placeholder="Example@gmail.com" oninput="removeBackground()">
+                <input id="email" class="w-100" type="text" placeholder="Example@gmail.com">
             </div>
             <div>
                 <label for="password">Password</label> <br>
-                <input id="password" class="w-100" type="text"
-                oninput="removeBackground()">
+                <input id="password" class="w-100" type="password">
                 <img class="eye float-end " src="images/Mask Group eye.png" alt="">
             </div>
             <div>
                 <label for="password">Confirm Password</label> <br>
-                <input id="Cpassword" class="w-100" type="password" oninput="removeBackground()">
+                <input id="Cpassword" class="w-100" type="password">
                 <img class="eye float-end " src="images/Mask Group eye.png" alt="">
             </div>
             <div id="btndiv">
@@ -140,7 +139,7 @@
             <div class="login text-center mt-3 fs-5 text-secondary">
                 Don't have an account?<span> <a href="signup.html">Sign up</a></span>
             </div>
-        </form>
+        </div>
     </div>
 
     <script>
