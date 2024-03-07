@@ -22,7 +22,7 @@
 </head>
 <style>
     #container {
-        padding:50px;
+        padding:20px;
     }
 
     #ell {
@@ -48,7 +48,7 @@
         border: none;
         border-bottom: 1px solid #878787;
         padding: 20px 0;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         outline: none;
         background: white;
         /* padding-left: 10px; */
@@ -153,7 +153,10 @@
           let SignUser = {
             email: email.value,
             password: password.value,
-            Cpassword: Cpassword.value
+            Cpassword: Cpassword.value,
+            security: [],
+            userinfo: []
+        
           }
           if(email.value === "" || password.value === ""  || Cpassword.value === ""){
             alert("Fill in all fields")

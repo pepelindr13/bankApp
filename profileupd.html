@@ -117,9 +117,30 @@
     </div>
 
     <script>
+        let getUser = JSON.parse(localStorage.getItem("signup"));
+        let sUser = JSON.parse(localStorage.getItem("newUser"));
+        let info = 
         function back() {
             window.location.href = "login.html";
         }
+
+
+        function set(){
+            if(firstname.value === "" || lastname.value === "" || number.value === ""){
+                alert("fill in all fields")
+            }else{
+                let details = {
+                firstname: firstname.value,
+                lastname: lastname.value,
+                number: number.value
+            }
+                getUser[sUser].userinfo.push(details)
+                localStorage.setItem("signup", JSON.stringify(getUser))
+                 console.log(getUser[sUser].userinfo);
+                window.location.href = "login.html";
+            }
+        }
+
     </script>
 </body>
 </html>
