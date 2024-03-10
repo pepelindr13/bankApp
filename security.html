@@ -182,7 +182,10 @@
           alert("You must set a security Question and Security Pin");
         } else if (pinInp.value.length > 5) {
           alert("Pin can only be five numbers");
-        } else {
+        }else if(getUser[sUser].security.length > 1){
+            alert("You can only set one security question")
+        }
+         else {
           let security = {
             question: secinp.value,
             pin: pinInp.value,

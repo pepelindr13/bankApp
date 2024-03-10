@@ -22,7 +22,7 @@
   </head>
   <style>
     body {
-      padding: 20px;
+      padding: 50px;
     }
     #arrdiv {
       background-color: #5063bf;
@@ -74,7 +74,7 @@
       border-radius: 20px;
       padding: 10px 40px;
       font-size: 20px;
-      margin: 10px auto;
+      margin: 30px auto 20px auto;
     }
 
     #unique,
@@ -171,7 +171,9 @@
       function del() {
         pinInp.value = pinInp.value.slice(0, -1);
       }
-
+       function back(){
+        window.location.href = "login2.html"
+       }
       function set() {
         if (pinInp.value === "") {
           alert("Please enter a PIN");
@@ -181,6 +183,9 @@
             text: "Pin is Correct'",
             icon: "success",
           });
+          setTimeout(() => {
+            window.location.href="dashboard.html"
+        }, 3000);
         }else if(pinInp.value.length > 5){
             alert("Pin can't be more than 5 numbers")
             pinInp.value = "";
@@ -192,7 +197,9 @@
             text: "Pin is incorrect!",
           });
           pinInp.value = "";
+
         }
+
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>

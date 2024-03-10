@@ -83,7 +83,7 @@
         <div id="arrdiv" onclick="back()">
             <img src="images/arrow_to_top.png" alt="">
         </div>
-        <h5 class="w-50 mx-auto fw-bolder fs-4">
+        <h5 class="w-50 mx-auto  d-flex justify-content-center fw-bolder fs-4">
             Profile
         </h5>
     </div>
@@ -127,7 +127,10 @@
         function set(){
             if(firstname.value === "" || lastname.value === "" || number.value === ""){
                 alert("fill in all fields")
-            }else{
+            }else if(getUser[sUser].userinfo.length > 1){
+                alert("You already filled in your Personal information")
+            }
+            else{
                 let details = {
                 firstname: firstname.value,
                 lastname: lastname.value,
